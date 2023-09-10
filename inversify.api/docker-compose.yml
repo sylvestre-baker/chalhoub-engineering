@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+    container_name: server.inversify.client.api
+    expose:
+      - '8001'
+    volumes:
+      - .:/dist
+    command: pm2-runtime ./dist/servers/inversify.client.api/index.js -i max
+    ports:
+      - "8001:8001"
+    environment:
+      NODE_ENV: development
