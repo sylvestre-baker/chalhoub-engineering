@@ -12,7 +12,7 @@ var fs = require('fs');
 var https = require('https');
 let start = Date.now();
 
-import './controllers/';
+import './controllers';
 //configureServices(container, passport);
 configureDatabase({ mongodb: config.mongodb }, container);
 

@@ -9,6 +9,7 @@ import * as swagger from "swagger-express-ts";
 import { SwaggerDefinitionConstant } from "swagger-express-ts";
 import { useAuth } from '../../../modules/auth';
 import { useServiceUser } from '../../../modules/users';
+import { useServiceEvent } from '../../../modules/events';
 
 export function configureExpress(app: Application) {
 
@@ -50,6 +51,6 @@ export function configureExpress(app: Application) {
     app.set('superSecret', config.secret); // secret variable
     useAuth(app, container);
     useServiceUser(container);
-    
+    useServiceEvent(container);
 
 }

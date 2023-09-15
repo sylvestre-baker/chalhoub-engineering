@@ -15,7 +15,6 @@ const querystring = require('querystring');
     name: "Authentification",
 })
 @controller('/auth')
-//@injectable()
 export class ControllerAuthentification {
     constructor(
         @inject(TYPES.ServiceAuthentification) private serviceAuthentification: ServiceAuthentification,

@@ -2,7 +2,7 @@
 import { injectable, inject } from 'inversify';
 import {
     CreateUserRequest,
-    FindUserByIdRequest,
+    UserGetByIdRequest,
     FindUserByEmailRequest,
     EditUserRequest,
     EditUserPasswordRequest,
@@ -107,7 +107,7 @@ export class ServiceUser {
         }
     }
 
-    async find(findUser: FindUserByIdRequest): Promise<IModelResponse> {
+    async find(findUser: UserGetByIdRequest): Promise<IModelResponse> {
         try {
             const user = await this.store.get(findUser.userId);
             if (!user) {
@@ -182,7 +182,7 @@ export class ServiceUser {
         }
     }
 
-    async remove(removeUser: FindUserByIdRequest): Promise<IModelResponse> {
+    async remove(removeUser: UserGetByIdRequest): Promise<IModelResponse> {
         try {
             let user = await this.store.get(removeUser.userId);
             if (!user) {
@@ -227,7 +227,7 @@ export class ServiceUser {
     }
 
 
-    async sendEmailVerification(findUser: FindUserByIdRequest, host: string): Promise<IModelResponse> {
+    async sendEmailVerification(findUser: UserGetByIdRequest, host: string): Promise<IModelResponse> {
         return new Promise<IModelResponse>(async (resolve, reject) => {
             try {
                 let user = await this.store.get(findUser.userId);

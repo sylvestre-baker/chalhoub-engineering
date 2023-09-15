@@ -4,27 +4,6 @@ import { ModelUser } from './db/index';
 import { ApiModel, ApiModelProperty, SwaggerDefinitionConstant } from 'swagger-express-ts';
 import { IModelResponse } from '../../interfaces/api/index';
 
-
-@ApiModel({
-    description: "User Length Response",
-    name: "UserLengthResponse"
-})
-export class UserLengthResponse implements IModelResponse {
-    @ApiModelProperty({
-        description: "code",
-        required: true
-    })
-    code: number;
-    message: string;
-    error: string;
-    @ApiModelProperty({
-        description: "data",
-        required: true
-    })
-    data: number;
-}
-
-
 @ApiModel({
     description: "User Response",
     name: "UserResponse"
@@ -176,9 +155,9 @@ export class FindUserByEmailRequest {
 
 @ApiModel({
     description: "Find user by userId",
-    name: "FindUserByIdRequest"
+    name: "UserGetByIdRequest"
 })
-export class FindUserByIdRequest {
+export class UserGetByIdRequest {
     @ApiModelProperty({
         description: "UserId",
         required: true
