@@ -15,8 +15,15 @@ let start = Date.now();
 import './controllers';
 import { configureQueue } from '../../modules/queue';
 //configureServices(container, passport);
+
+const SECRET_ACCESS_KEY_ID = process.env.SECRET_ACCESS_KEY_ID;
+const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
+config.secretManager.credentials = {
+    accessKeyId: SECRET_ACCESS_KEY_ID,
+    secretAccessKey: SECRET_ACCESS_KEY,
+}
 configureDatabase({ mongodb: config.mongodb }, container);
-configureQueue({ sqs: config.sqs }, container);
+configureQueue({ sqs: config.sqs, secretManager: config.secretManager }, container);
 
 // create server
 
@@ -27,7 +34,7 @@ server.setConfig(configureExpress);
 let app = server.build();
 console.log(process.cwd())
 
- app.listen(8001, () => {
+app.listen(8001, () => {
     console.log(`server started on port 8001 (${config.env})`);
     let duration = Date.now() - start;
 });

@@ -11,10 +11,18 @@ export interface IServerConfiguration {
     sqs: {
         region: string,
         credentials: {
-            accessKeyId: string,
+            secretAccessKeyId: string,
             secretAccessKey: string,
         },
         queueUrl: string
+    },
+    secretManager: {
+        secretName : string,
+        region : string,
+        credentials: {
+            accessKeyId: string,
+            secretAccessKey: string,
+        },
     },
     machineKey: string;
     appInsightsKey: string;

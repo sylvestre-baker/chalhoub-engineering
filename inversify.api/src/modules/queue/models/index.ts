@@ -1,1 +1,1 @@
-export * from './interface.sqs.message.params';
+export * from './interface.sqs';

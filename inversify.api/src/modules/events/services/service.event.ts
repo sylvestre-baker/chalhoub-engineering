@@ -15,19 +15,25 @@ import {
     StoreEvent,
 } from './stores';
 import { IModelResponse } from '../../interfaces/api/index';
+import { SQSQueueClient } from '../../queue';
 
 @injectable()
 export class ServiceEvent {
     constructor(
         @inject(TYPES.StoreEvent) private store: StoreEvent,
+        @inject(TYPES.SQSQueueClient) private sqsQueueClient: SQSQueueClient,
     ) {
     }
 
     async create(newEvent : EventCreateRequest) : Promise<IModelResponse> {
         try {
             const event = await this.store.create(newEvent.name, newEvent.body);
-            if (event)
+            if (event){
+                this.sqsQueueClient.sendMessage(JSON.stringify(event), (error, data) => {
+                    console.log(error, data);
+                });
                 return ResponseSuccess(201, event);
+            }
             else
                 return ResponseFailure(500, 'Internal Server Error : something went wrong');
         } catch (error) {
