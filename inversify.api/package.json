@@ -19,6 +19,8 @@
     "lodash": "^4.17.15"
   },
   "dependencies": {
+    "@aws-sdk/client-sqs": "^3.413.0",
+    "@aws-sdk/types": "^3.413.0",
     "@hapi/topo": "^5.0.0",
     "@sendgrid/mail": "^7.7.0",
     "@types/compression": "0.0.35",

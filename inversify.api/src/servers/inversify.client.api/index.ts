@@ -13,8 +13,10 @@ var https = require('https');
 let start = Date.now();
 
 import './controllers';
+import { configureQueue } from '../../modules/queue';
 //configureServices(container, passport);
 configureDatabase({ mongodb: config.mongodb }, container);
+configureQueue({ sqs: config.sqs }, container);
 
 // create server
 

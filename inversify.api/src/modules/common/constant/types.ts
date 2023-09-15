@@ -1,5 +1,6 @@
 export const TYPES = {
     MongoDBClient: Symbol('MongoDBClient'),
+    SQSQueueClient: Symbol('SQSQueueClient'),
     ServiceUser: Symbol('ServiceUser'),
     StoreUser: Symbol('StoreUser'),
     ServiceEvent: Symbol('ServiceEvent'),
@@ -8,4 +9,5 @@ export const TYPES = {
     StoreUserAdmin: Symbol('StoreUserAdmin'),
     ServiceAuthentification: Symbol('ServiceAuthentification'),
     ServiceNotification: Symbol('ServiceNotification'),
+    
 }
