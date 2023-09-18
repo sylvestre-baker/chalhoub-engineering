@@ -14,14 +14,17 @@ let start = Date.now();
 
 import './controllers';
 import { configureQueue } from '../../modules/queue';
-//configureServices(container, passport);
+import * as dotenv from 'dotenv';
 
-const SECRET_ACCESS_KEY_ID = process.env.SECRET_ACCESS_KEY_ID;
-const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
+dotenv.config({ override: true });
+console.info("zdzedfzfzefzefzefzefzefzfzfzfzefze")
+const SECRET_ACCESS_KEY_ID = process.env.ACCESS_KEY_ID!;
+const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY!;
 config.secretManager.credentials = {
     accessKeyId: SECRET_ACCESS_KEY_ID,
     secretAccessKey: SECRET_ACCESS_KEY,
 }
+console.log(config.secretManager.credentials);
 configureDatabase({ mongodb: config.mongodb }, container);
 configureQueue({ sqs: config.sqs, secretManager: config.secretManager }, container);
 

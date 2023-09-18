@@ -1,0 +1,16 @@
+{
+    "brands": ["Dior", "Louis Vuitton", "Fendi", "Chanel", "Burberry", "Sephora", "L'Occitane"],
+    "sourceApps": ["ChalhoubPOS", "ChalhoubEcommerce", "ChalhoubCRM", "ChalhoubInventory"],
+    "eventTypes": ["purchase", "refund", "browse", "wishlist_add", "cart_add", "cart_remove", "checkout"],
+    "priorities": ["low", "medium", "high"],
+    "tags": [
+      ["luxury", "makeup"],
+      ["fragrance", "luxury"],
+      ["apparel", "luxury"],
+      ["accessory", "highend"],
+      ["beauty", "skincare"],
+      ["footwear", "luxury"],
+      ["jewellery", "luxury"]
+    ]
+  }
+  

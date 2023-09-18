@@ -1,0 +1,26 @@
+{
+    "names": [
+        "PurchaseEvent",
+        "RefundEvent",
+        "ViewProductEvent",
+        "AddToCartEvent",
+        "RemoveFromCartEvent",
+        "SignupNewsletterEvent"
+    ],
+    "bodies": [
+        "User purchased a luxury item.",
+        "User refunded a product.",
+        "User viewed a high-end product.",
+        "User added a product to the cart.",
+        "User removed a product from the cart.",
+        "User signed up for the luxury newsletter."
+    ],
+    "products": [
+        "Louis Vuitton Bag",
+        "Chanel Perfume",
+        "Gucci Shoes",
+        "Dior Sunglasses",
+        "Tiffany Jewelry",
+        "Burberry Coat"
+    ]
+}

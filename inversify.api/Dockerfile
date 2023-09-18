@@ -1,4 +1,4 @@
-FROM node:12-alpine as base
+FROM node:14-alpine as base
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -8,16 +8,21 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+COPY .env ./
 # Bundle app source
 COPY . .
+
+RUN ls -la
+
 
 EXPOSE 8001
 
 FROM base as dev
 RUN npm install pm2 -g
-RUN npm install typescript@4.1.3 -g
+RUN npm install typescript@4.9.3 -g
 RUN npm install
 RUN ls
-RUN npm run tsc
+RUN npm run build
 
-CMD [ "pm2-runtinme", "dist/servers/inversify.client.api/index.js", "-i", "max"]
+#CMD [ "pm2-runtinme", "dist/servers/inversify.client.api/index.js", "-i", "max"]
+CMD [ "node", '--inspect=0.0.0.0:9229', "dist/servers/inversify.client.api/index.js", "-i", "max"]

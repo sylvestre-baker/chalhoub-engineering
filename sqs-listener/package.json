@@ -1,0 +1,21 @@
+{
+  "name": "sqs-listener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/listener.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.414.0",
+    "@types/node": "^20.6.2",
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "rimraf": "^5.0.1"
+  }
+}

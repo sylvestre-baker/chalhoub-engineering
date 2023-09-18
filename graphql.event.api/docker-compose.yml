@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+    container_name: graphql.event.api
+    depends_on:
+      - mongodb-graphql-event-api
+    expose:
+      - '4000'
+    volumes:
+      - .:/dist
+    command: npm start
+    #command: pm2-runtime ./dist/server.js -i max
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://mongodb-graphql-event-api:27018/graphql-event-api
+
+  mongodb-graphql-event-api:
+    image: mongo:latest
+    container_name: mongodb.graphql.event.api
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

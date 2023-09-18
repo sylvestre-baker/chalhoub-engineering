@@ -1,0 +1,22 @@
+{
+  "name": "source-event-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/agent.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.6.2",
+    "axios": "^1.5.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.1"
+  }
+}
