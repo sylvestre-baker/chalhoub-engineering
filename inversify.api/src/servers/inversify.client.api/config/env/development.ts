@@ -7,7 +7,7 @@ const config: IServerConfiguration = {
   host: '',
   machineKey: '',
   mongodb: {
-    host: 'mongodb://mongodb-inversify-client-api:27017',
+    host: 'mongodb://mongodb-inversify-client-api:27017/',
     db: 'inversify-client-api'
   },
   sqs: {

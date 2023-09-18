@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  source-event-agent:
+    build:
+      context: ./
+      target: dev
+      dockerfile: Dockerfile
+    container_name: source.event.agent
+    expose:
+      - '4000'
+    volumes:
+      - .:/dist
+    command: npm start
+    environment:
+      NODE_ENV: development
+    networks:
+      - api_db_network
+
+networks:
+  api_db_network:
+    external: true

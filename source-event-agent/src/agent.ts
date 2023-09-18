@@ -1,7 +1,7 @@
 import axios from 'axios';
 const config = require('../config.json');
 
-const BASE_URL = 'http://localhost:8001';
+const BASE_URL = 'http://server-inversify-client-api:8001';
 
 function isErrorWithResponse(error: unknown): error is { response: { status: number } } {
     return !!error && typeof error === 'object' && 'response' in error && error.response !== null && typeof error.response === 'object' && 'status' in error.response;

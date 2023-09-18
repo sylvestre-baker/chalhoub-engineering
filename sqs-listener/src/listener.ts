@@ -59,7 +59,7 @@ async function sendToGraphQL(event: EnrichedEvent) {
         }
     `;
 
-    const response = await axios.post('http://localhost:4000/graphql', {
+    const response = await axios.post('http://server.graphql.event.api:4000/graphql', {
         query: mutation,
         variables: {
             body: event.body,

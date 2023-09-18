@@ -1,12 +1,12 @@
 version: "3.8"
 
 services:
-  server:
+  server-inversify-client-api:
     build:
       context: ./
       target: dev
       dockerfile: Dockerfile
-    container_name: server.graphql.event.api
+    container_name: server.inversify.client.api
     depends_on:
       - mongodb-inversify-client-api
     expose:
@@ -20,6 +20,8 @@ services:
     environment:
       NODE_ENV: development
       MONGODB_URI: mongodb://mongodb-inversify-client-api:27017/inversify-client-api
+    networks:
+      - api_db_network
 
   mongodb-inversify-client-api:
     image: mongo:latest
@@ -28,6 +30,12 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+    networks:
+      - api_db_network
 
 volumes:
   mongodb_data:
+
+networks:
+  api_db_network:
+    external: true
