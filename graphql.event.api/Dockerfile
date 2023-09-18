@@ -1,24 +1,26 @@
-# Utilisez une étape de base pour les dépendances et le code
-FROM node:16-buster as base
+# Use a base stage for dependencies and code
+FROM node:16-alpine as base
 
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copiez les fichiers de dépendances
+# Copy dependency files
 COPY package*.json ./
 
-# Installez les dépendances
-RUN npm ci
+# Install dependencies
+RUN npm install
 
-# Copiez le reste du code
+# Copy the rest of the application code
 COPY . .
 
-EXPOSE 8001
+# Expose port 4000 for the application
+EXPOSE 4000
 
-# Utilisez une étape de développement pour les dépendances de développement et la compilation
+# Use a development stage for development dependencies and compilation
 FROM base as dev
 
-# Installez pm2 et typescript localement (sauf si vous avez une raison spécifique de les avoir globalement)
+# Install pm2 and a specific version of typescript locally 
 RUN npm install pm2 typescript@4.9.3
 
-# Compilez le code TypeScript
+# Compile the TypeScript code
 RUN npm run build
