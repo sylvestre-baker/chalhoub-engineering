@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   sqs-listener:
+    image: sqs-listener:latest
     build:
       context: ./
       target: dev

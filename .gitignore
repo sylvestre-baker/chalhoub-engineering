@@ -49,3 +49,7 @@ tasks/*.js.map
 
 
 package-lock.json
+
+*.tfstate
+*.tfstate.*
+*.terraform/
