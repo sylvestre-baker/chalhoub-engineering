@@ -1,0 +1,68 @@
+# Event API Performance Testing
+
+This repository, hosted at [https://github.com/sylvestre-baker/chalhoub-engineering](https://github.com/sylvestre-baker/chalhoub-engineering), contains the backend service for managing events and its performance testing suite using Locust.
+
+## Prerequisites
+
+- Docker
+- Python (3.6+)
+
+## Backend Service Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/sylvestre-baker/chalhoub-engineering.git
+   cd chalhoub-engineering
+   ```
+2. Navigate to the `inversify.api` directory:
+
+   ```bash
+   cd inversify.api
+   ```
+3. Build and start the backend service using Docker:
+   ```bash
+   docker-compose up --build
+   ```
+   The backend service will now be accessible at: `http://localhost:8001/`
+
+## Performance Testing with Locust
+
+### Installation
+
+1. Install the required Python libraries:
+   ```bash
+   pip install locust
+   ```
+
+2. Navigate to the directory containing the Locust files:
+   `cd tests/locust-load-testing`
+
+### Running the Tests
+
+- To run the tests manually with the Locust web UI:
+  ```bash
+  locust -f locustfile.py
+  ```
+
+  Open your browser and go to `http://localhost:8089`. Enter the desired number of users to simulate and the spawn rate.
+
+- To run the tests programmatically:
+  ```bash
+  python run_test.py
+  ```
+
+  This script will run multiple scenarios and save the results in the `results` directory.
+
+### Scenarios
+
+- **User Spike:** Simulates a rapid influx of users to test the system's response to sudden high traffic.
+- **Steady Load:** Simulates a consistent number of users over a period to test the system's endurance.
+- **Gradually Increasing Load:** Increases the number of users over time to test scalability.
+- **Long Session Users:** Simulates users having extended sessions.
+
+Results of these scenarios are saved in the `results` directory with descriptive filenames for each scenario.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
