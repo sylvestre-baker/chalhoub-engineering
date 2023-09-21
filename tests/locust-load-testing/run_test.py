@@ -16,7 +16,7 @@ env.host = "http://localhost:8001"
 
 def save_current_stats_to_csv(file_name):
     with open(file_name, 'w') as f:
-        f.write(env.runner.stats.export_current_stats())
+        f.write(env.runner.stats.history)
 
 # Scenario 1: User Spike
 env.runner.start(100, spawn_rate=10)  # Rapid influx of 100 users
